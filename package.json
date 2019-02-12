@@ -1,0 +1,29 @@
+{
+  "name": "dashbot-logger",
+  "version": "0.0.1",
+  "description": "Lambda logger for a custom CloudWatch log group.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/actionably/dashbot/issues"
+  },
+  "keywords": [
+    "CloudWatch",
+    "Logs",
+    "Lambda"
+  ],
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/actionably/dashbot-logger.git"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.401.0",
+    "generic-pool": "^3.6.1",
+    "lodash": "^4.17.11",
+    "uuid": "^3.3.2"
+  }
+}
