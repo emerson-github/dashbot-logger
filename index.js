@@ -7,7 +7,7 @@ function CloudWatchLogger(options) {
 
   this._loggerStream = new CloudWatchStreamLogger(options)
 
-  this.log = (value) => {
+  this.log = function (value) {
     var that = this;
 
     if (_.isObject(value)) {
@@ -16,7 +16,7 @@ function CloudWatchLogger(options) {
       value = value.toString()
     }
 
-    that._loggerStream.write({
+    return that._loggerStream.write({
       timestamp: new Date().getTime(),
       message: value
     })

@@ -4,7 +4,9 @@
   "description": "Lambda logger for a custom CloudWatch log group.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "eslint lib && mocha $(find lib -name '*.js' | grep __tests__)",
+    "eslint": "eslint lib",
+    "eslint-fix": "eslint --fix lib"
   },
   "bugs": {
     "url": "https://github.com/actionably/dashbot/issues"
@@ -25,5 +27,14 @@
     "generic-pool": "^3.6.1",
     "lodash": "^4.17.11",
     "uuid": "^3.3.2"
+  },
+  "devDependencies": {
+    "eslint": "^5.13.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.16.0",
+    "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "mocha": "^5.2.0"
   }
 }
