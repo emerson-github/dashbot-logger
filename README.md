@@ -19,6 +19,13 @@ Available options:
   - ***logStreamPrefix*** - ```string``` user specified log stream prefix (default: ```dashbot```) 
   - ***maxStreams*** - ```number``` max number of log streams to use concurrently (default: ```10```) 
   - ***minStreams*** - ```number``` min number of log streams to use concurrently (default: ```1```) 
+  
+Optionally, you can use the following environment variables to set certain options:
+
+  - ***logGroupName*** - process.env.DASHBOT_LOG_GROUP_NAME
+  - ***logStreamPrefix*** - process.env.DASBOT_LOG_STREAM_PREFIX
+  - ***maxStreams*** - process.env.DASHBOT_LOG_MAX_STREAMS
+  - ***minStreams*** - process.env.DASHBOT_LOG_MIN_STREAMS
 
 ## Example
 
