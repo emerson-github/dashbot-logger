@@ -2,7 +2,7 @@
   "name": "dashbot-logger",
   "version": "0.0.2",
   "description": "Lambda logger for a custom CloudWatch log group.",
-  "main": "index.js",
+  "main": "lib/log-stream.js",
   "scripts": {
     "test": "eslint lib && mocha $(find lib -name '*.js' | grep __tests__)",
     "eslint": "eslint lib",
@@ -26,6 +26,7 @@
     "aws-sdk": "^2.401.0",
     "generic-pool": "^3.6.1",
     "lodash": "^4.17.11",
+    "pump": "^3.0.0",
     "uuid": "^3.3.2"
   },
   "devDependencies": {
