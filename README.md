@@ -1,31 +1,54 @@
 # dashbot-logger
 
-dashbot-logger allows you to log to a specific log-group apart from the default
-log-group that Lambda functions setup. The logger works around the 5
-putLogEvent/s limit by batching up log events in requests and using a pool of
-log-streams to put log events to.
+dashbot-logger allows you to log to a specific log group in CloudWatch Logs apart from the default
+log group that Lambda functions set up. The logger works around the 5 putLogEvent/s limit by 
+batching up log events and using a pool of log streams to put log events to.
 
 ## Setup
+
+***This package uses the aws-sdk, and will require an AWS account.*** 
 
 ```bash
 npm install --save dashbot-logger
 ```
 
+Pass in your AWS credentials and a region as follows, or configure using one of the options listed 
+[here](https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/setting-region.html)
+
+  - ***region*** - ```string``` aws region
+  - ***accessKeyId*** - ```string``` access key
+  - ***secretAccessKey*** - ```string``` secret key
+  - ***logGroupName*** - (required) ```string``` user specified log group name
+  
+```javascript
+const configuration = {
+  region: <REGION>,
+  accessKeyId: <ACCESS-KEY>,
+  secretAccessKey: <SECRET-KEY>,
+  logGroupName: <LOG-GROUP-NAME>,
+}
+
+const Logger = require('dashbot-logger')
+const logger = new Logger(configuration)
+``` 
+
+You can also pass in additional configuration options to specify the behavior of the resource pool for 
+log streams and naming of log streams.
+
 ## Configuration Options
 Available options:
 
-  - ***debug*** - ```boolean``` logs helpful debugging information (default: ```false```) 
-  - ***logGroupName*** - ```string``` user specified log group name (required) 
-  - ***logStreamPrefix*** - ```string``` user specified log stream prefix (default: ```dashbot```) 
-  - ***maxStreams*** - ```number``` max number of log streams to use concurrently (default: ```10```) 
-  - ***minStreams*** - ```number``` min number of log streams to use concurrently (default: ```1```) 
+  - ***debug*** - (default: ```false```, ```boolean```) logs helpful debugging information 
+  - ***logStreamPrefix*** - (default: ```dashbot```, ```string```) user specified log stream prefix 
+  - ***maxStreams*** - (default: ```10```, ```number```) max number of log streams to use concurrently 
+  - ***minStreams*** - (default: ```1```, ```number```) min number of log streams to use concurrently  
   
 Optionally, you can use the following environment variables to set certain options:
 
-  - ***logGroupName*** - process.env.DASHBOT_LOG_GROUP_NAME
-  - ***logStreamPrefix*** - process.env.DASBOT_LOG_STREAM_PREFIX
-  - ***maxStreams*** - process.env.DASHBOT_LOG_MAX_STREAMS
-  - ***minStreams*** - process.env.DASHBOT_LOG_MIN_STREAMS
+  - for ***logGroupName*** set DASHBOT_LOG_GROUP_NAME
+  - for ***logStreamPrefix*** set DASBOT_LOG_STREAM_PREFIX
+  - for ***maxStreams*** set DASHBOT_LOG_MAX_STREAMS
+  - for ***minStreams*** set DASHBOT_LOG_MIN_STREAMS
 
 ## Example
 
