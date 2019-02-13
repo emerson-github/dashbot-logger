@@ -1,6 +1,6 @@
 {
   "name": "dashbot-logger",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Lambda logger for a custom CloudWatch log group.",
   "main": "lib/log-stream.js",
   "scripts": {
