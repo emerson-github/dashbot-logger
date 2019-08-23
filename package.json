@@ -1,7 +1,7 @@
 {
-  "name": "dashbot-logger",
+  "name": "ipsense-logger",
   "version": "1.0.4",
-  "description": "Lambda logger for a custom CloudWatch log group.",
+  "description": "Lambda logger for a custom CloudWatch log group based on dashbot-logger.",
   "main": "lib/log-stream.js",
   "scripts": {
     "test": "eslint lib && mocha $(find lib -name '*.js' | grep __tests__)",
@@ -9,7 +9,7 @@
     "eslint-fix": "eslint --fix lib"
   },
   "bugs": {
-    "url": "https://github.com/actionably/dashbot/issues"
+    "url": "https://github.com/ipsensetecnologia/ipsense-logger/issues"
   },
   "keywords": [
     "CloudWatch",
@@ -17,10 +17,10 @@
     "Lambda"
   ],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actionably/dashbot-logger.git"
+    "url": "git+https://github.com/ipsensetecnologia/ipsense-logger.git"
   },
   "dependencies": {
     "aws-sdk": "^2.401.0",
