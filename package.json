@@ -1,6 +1,6 @@
 {
   "name": "ipsense-logger",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Lambda logger for a custom CloudWatch log group based on dashbot-logger.",
   "main": "lib/log-stream.js",
   "scripts": {
