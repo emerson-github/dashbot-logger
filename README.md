@@ -4,7 +4,7 @@ dashbot-logger allows you to log to a specific log group in CloudWatch Logs apar
 log group that Lambda functions set up. The logger works around the 5 putLogEvent/s limit by 
 batching up log events and using a pool of log streams to put log events to.
 
-This version adds a couple of new methods to bufferize, and flush logs allowing you keep information together in the logstream.
+This version adds a couple of new methods to bufferize, and flush logs allowing you to keep information together in the logstream.
 
 ## Setup
 
