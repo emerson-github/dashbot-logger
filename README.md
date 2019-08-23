@@ -1,7 +1,6 @@
-# dashbot-logger
+# ipsense-logger
 
-dashbot-logger allows you to log to a specific log group in CloudWatch Logs apart from the default
-log group that Lambda functions set up. The logger works around the 5 putLogEvent/s limit by 
+ipsense-logger is heavily based on dashbot-logger which allows you to log to a specific log group in CloudWatch Logs apart from the default log group that Lambda functions set up. The logger works around the 5 putLogEvent/s limit by 
 batching up log events and using a pool of log streams to put log events to.
 
 This version adds a couple of new methods to bufferize, and flush logs allowing you to keep information together in the logstream.
@@ -11,7 +10,7 @@ This version adds a couple of new methods to bufferize, and flush logs allowing 
 ***This package uses the aws-sdk, and will require an AWS account.*** 
 
 ```bash
-npm install --save dashbot-logger
+npm install --save ipsense-logger
 ```
 
 Pass in your AWS credentials and a region as follows, or configure using one of the options listed 
@@ -30,7 +29,7 @@ const configuration = {
   logGroupName: <LOG-GROUP-NAME>,
 }
 
-const Logger = require('dashbot-logger')
+const Logger = require('ipsense-logger')
 const logger = new Logger(configuration)
 ``` 
 
@@ -64,7 +63,7 @@ const configuration = {
   'printErrors': true,
 }
 
-const Logger = require('dashbot-logger')
+const Logger = require('ipsense-logger')
 const logger = new Logger(configuration)
 
 logger.buffer('test1') // add string test1 to log buffer
@@ -74,3 +73,4 @@ logger.buffer('test4') // add string test4 to log buffer
 ...
 logger.flush() //logs buffer's content to log-group 'test-group', and clear the buffer
 ```
+
